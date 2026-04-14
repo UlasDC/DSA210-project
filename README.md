@@ -1,18 +1,125 @@
-# DSA210 Term Project: Weather Impact on Turkish Super Lig Matches
+# DSA210 Term Project: The Effect of Weather Conditions on Goal Scoring in Beşiktaş Matches
 
-## 📌 Motivation
-Football is fundamentally shaped by environmental factors as much as tactical decisions. The motivation behind this project is to analyze how different weather conditions (such as heavy precipitation, strong winds, or extreme heat) influence in-match statistics and tactical approaches specifically within the **Turkish Super Lig**. For instance, does a rainy away game significantly decrease short passing accuracy? Does extreme heat lead to an increase in fouls due to fatigue? This project aims to uncover these hidden patterns using data science methodologies.
+## Motivation
 
-## 🗂️ Data Sources
-To strictly satisfy the project's data enrichment requirement, two distinct datasets will be collected and merged:
-1. **Match Statistics (Main Data):** Detailed in-match statistics for the Turkish Super Lig (e.g., passing accuracy, total goals, fouls, ball possession, aerial duels) will be collected using sources like **FBref** or **Football-Data.co.uk**.
-2. **Weather Data (Enrichment):** Historical, hourly weather data (temperature, precipitation mm, wind speed) matching the exact kickoff time and cities of each Super Lig match will be fetched using the **Open-Meteo API**.
+Football matches are played under many different environmental conditions, and weather may influence the flow and outcome of a game. Rain, temperature, and wind can affect player performance, match tempo, and scoring opportunities. In this project, I aim to examine whether weather conditions have a measurable effect on the number of goals scored in Beşiktaş matches.
 
-## ⚙️ Planned Data Pipeline
-- **Data Collection & Preprocessing:** Scraping/downloading Super Lig match data and joining it with API-fetched weather data based on geographical coordinates and precise timestamps.
-- **Exploratory Data Analysis (EDA):** Visualizing the correlations between weather elements and tactical match statistics (e.g., plotting precipitation levels against average passing accuracy).
-- **Hypothesis Testing:** Performing statistical tests (e.g., T-tests) to determine if weather variations cause a statistically significant shift in gameplay style.
-- **Machine Learning:** Building predictive models (e.g., Random Forest, Regression) to forecast specific match metrics or play styles based purely on the weather forecast and team characteristics.
+The project focuses on Beşiktaş matches over recent seasons and investigates whether variables such as precipitation, temperature, and wind speed are related to total goals scored in a match.
 
----
-*This repository is created for the DSA 210 Introduction to Data Science course (2025-2026 Spring Term).*
+## Project Question
+
+Does weather have a significant effect on the number of goals scored in Beşiktaş matches?
+
+## Hypothesis
+
+**Null Hypothesis (H₀):** Weather conditions do not significantly affect the total number of goals scored in Beşiktaş matches.
+
+**Alternative Hypothesis (H₁):** Weather conditions significantly affect the total number of goals scored in Beşiktaş matches.
+
+## Data Sources
+
+This project combines two different datasets:
+
+### 1. Match Data
+
+Match data for Beşiktaş will be collected from publicly available football statistics sources such as:
+
+- FBref
+- Football-Data.co.uk
+
+The match dataset is planned to include:
+
+- Match date
+- Opponent
+- Home/Away information
+- Final score
+- Total goals in the match
+
+### 2. Weather Data
+
+Historical weather data will be collected using the Open-Meteo API.
+
+The weather dataset is planned to include:
+
+- Temperature
+- Precipitation / rain
+- Wind speed
+
+Weather data will be matched to each match based on:
+
+- Date
+- Approximate kickoff time
+- Match location
+
+## Expected Dataset Size
+
+The project is expected to cover approximately the last 5 to 10 seasons of Beşiktaş matches, depending on data availability and consistency.
+
+Since a season contains around 34 to 40 league matches, the final dataset is expected to contain roughly 170 to 400 matches.
+
+## Data Enrichment
+
+The match dataset will be enriched by adding weather information for each match day. Additional derived variables may also be created, such as:
+
+- Rainy vs non-rainy match indicator
+- Temperature category
+- Wind category
+
+These features will help make the analysis more structured and interpretable.
+
+## Methodology
+
+The project will follow these steps:
+
+1. Collect Beşiktaş match data from public football data sources.
+2. Collect historical weather data for the same dates and locations.
+3. Merge the match and weather datasets.
+4. Clean the combined dataset and handle missing values if necessary.
+5. Perform exploratory data analysis (EDA).
+6. Conduct hypothesis testing.
+7. Apply basic machine learning or regression methods if appropriate.
+
+## Exploratory Data Analysis
+
+The EDA stage will include:
+
+- Summary statistics of match goals and weather variables
+- Distribution plots for goals and weather conditions
+- Comparisons of goals in rainy and non-rainy matches
+- Scatter plots and correlation analysis between weather variables and total goals
+
+## Hypothesis Testing
+
+To test the main hypothesis, I plan to compare match goal counts under different weather conditions.
+
+Possible methods include:
+
+- Independent samples t-test
+- Correlation analysis
+
+The exact method will depend on the distribution and structure of the final dataset.
+
+## Machine Learning / Modeling
+
+If the dataset size and quality are sufficient, the project may also include simple predictive models such as:
+
+- Linear Regression
+- Decision Tree Regression
+- Random Forest Regression
+
+These models may help estimate whether weather variables contribute to predicting total goals in a match.
+
+## Limitations
+
+This project has some limitations:
+
+- Weather is only one of many factors affecting football matches.
+- Some older match records may have incomplete metadata.
+- Stadium-level weather may sometimes be approximated using city-level data.
+- The project focuses only on Beşiktaş matches, so findings may not generalize to all teams.
+
+## Expected Outcome
+
+The project aims to determine whether there is a meaningful relationship between weather conditions and goal scoring in Beşiktaş matches. Even if no strong statistical relationship is found, the project will still provide a useful data-driven examination of how environmental conditions may relate to football outcomes.
+
+> > > > > > > 8f5239af346f569d8a28034be08c6ecffdaaa020
